@@ -43,7 +43,7 @@ class WorkerAPI:
         '''
         uvicorn.run(
             self.rp_app, host='0.0.0.0', port=int(api_port),
-            workers=os.environ.get('RUNPOD_REALTIME_CONCURRENCY', 1)
+            workers=int(os.environ.get('RUNPOD_REALTIME_CONCURRENCY', 1))
         )
 
     async def run(self, job: Job):
